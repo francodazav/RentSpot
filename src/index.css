@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #d5d5ea;
+  color: #79787e;
+  font-family: "Onest", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+.color1 {
+  color: #002128;
+}
+.color2 {
+  color: #004f77;
+}
+.color3 {
+  color: #ff7b02;
+}
+.color4 {
+  color: #ffcc2a;
+}
+.color5 {
+  color: #ffff7a;
+}

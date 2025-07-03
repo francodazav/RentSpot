@@ -1,0 +1,110 @@
+.spot-modal {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.469);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.spot-modal-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 5% auto;
+  padding: 20px;
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  color: #20202f;
+  border-radius: 12px;
+}
+.images-spot {
+  display: flex;
+  width: 100%;
+}
+.principal-photo {
+  width: 50%;
+  height: 40vh;
+}
+.secundary-photos {
+  display: flex;
+  flex-direction: column;
+}
+.secundary-photos {
+  width: 100%;
+  height: 20vh;
+}
+.info-reserve-container {
+  display: flex;
+  width: 100%;
+}
+
+.reservation {
+  width: 50%;
+  border-left: 1px black solid;
+}
+.reserve-form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  margin: auto auto;
+}
+.spot-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  width: 50%;
+}
+
+.spot-info-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.services {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.service {
+  padding: 2px 6px;
+
+  font-size: 0.8rem;
+}
+.dates-container {
+  flex: 1;
+  width: 90%;
+  margin: 10px auto;
+}
+.date-input {
+  width: 90%;
+  margin: 0 auto;
+  height: 1.2rem;
+  border-radius: 12px;
+  border: none;
+}
+.buttons-spot {
+  width: 100%;
+  margin: 0 40%;
+}
+.button-modal {
+  width: 20%;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+}
+.button-modal:hover {
+  cursor: pointer;
+  background-color: #d5d5eaa3;
+}
+.spot-info-container {
+  width: 40%;
+}

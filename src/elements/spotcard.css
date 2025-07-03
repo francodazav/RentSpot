@@ -1,0 +1,36 @@
+.spot-container {
+  width: 250px;
+  height: 26vh;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+.spot-photo {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.spot-container:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+.info-spot {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.spot-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+.spot-price-rate {
+  font-size: 0.9rem;
+  margin: 0;
+}
