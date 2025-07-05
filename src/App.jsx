@@ -13,24 +13,24 @@ const MySpots = React.lazy(() => import("./pages/MySpots.jsx"));
 const HomePage = React.lazy(() => import("./pages/Homepage.jsx"));
 const Reserve = React.lazy(() => import("./pages/Reserve.jsx"));
 function App() {
-  const { user, loged, setIsOpen, setModaleMode } = useUser();
+  const { loged } = useUser();
 
   return (
     <main className="App">
       <Suspense>
         {loged ? <DinamicNavbar /> : <Navbar />}
         <Router routes={routes}>
-          <Route path="/" Component={HomePage} />
           <Route path="/reserve" Component={Reserve} />
+
+          {loged ? (
+            <React.Fragment>
+              <Route path="/upload-spot" Component={UploadSpot} />
+              <Route path="/my-spots" Component={MySpots} />
+            </React.Fragment>
+          ) : (
+            <Route path="/" Component={HomePage} />
+          )}
         </Router>
-        {loged ? (
-          <Router routes={routes}>
-            <Route path="/upload-spot" Component={UploadSpot} />
-            <Route path="/my-spots" Component={MySpots} />
-          </Router>
-        ) : (
-          <Route path="/" Component={HomePage} />
-        )}
         <LoginRegisterModal />
       </Suspense>
     </main>

@@ -14,6 +14,7 @@ export const useUser = () => {
     setModaleMode,
     register,
     logout,
+    rsvConfirm,
   } = useContext(UserContext);
   if (user === undefined) {
     throw new Error("UserContext must be used within a UserProvider");
@@ -30,5 +31,6 @@ export const useUser = () => {
     setModaleMode,
     register,
     logout,
+    rsvConfirm,
   };
 };

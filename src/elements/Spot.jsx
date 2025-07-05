@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import DatePicker from "react-datepicker";
 export const Spot = ({ spots }) => {
   console.log(spots);
   const [photos, setPhotos] = useState([]);

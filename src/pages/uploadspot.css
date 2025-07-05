@@ -96,3 +96,10 @@
 .access {
   margin: auto auto;
 }
+.default-payment {
+  width: 100%;
+  height: 100vh;
+}
+.default-h1 {
+  margin: 20% 40%;
+}

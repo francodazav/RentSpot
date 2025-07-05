@@ -21,6 +21,8 @@ export const useSpots = () => {
     setFormattedTomorrow,
     daysRsv,
     setDaysRsv,
+    makeReservation,
+    disponibility,
   } = useContext(SpotsContext);
   return {
     getAllSpots,
@@ -41,5 +43,7 @@ export const useSpots = () => {
     setFormattedTomorrow,
     daysRsv,
     setDaysRsv,
+    makeReservation,
+    disponibility,
   };
 };

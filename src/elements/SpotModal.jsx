@@ -1,8 +1,9 @@
 import ReactModal from "react-modal";
+import DatePicker from "react-datepicker";
 import { useSpots } from "../hooks/ueeSpots";
 import "./spotModal.css";
-import { useEffect, useState } from "react";
 import { Link } from "../Router/Link";
+import "react-datepicker/dist/react-datepicker.css";
 export const SpotModal = () => {
   const {
     spotModal,
@@ -11,6 +12,9 @@ export const SpotModal = () => {
     setCheckInDate,
     setCheckOutDate,
     formattedTomorrow,
+    checkInDate,
+    checkOutDate,
+    disponibility,
   } = useSpots();
   const date = new Date();
   const formattedDate = date.toISOString().split("T")[0];
@@ -22,7 +26,9 @@ export const SpotModal = () => {
   const handleCheckOutDate = (event) => {
     setCheckOutDate(event.target.value);
   };
+
   if (!spotToShow || !spotToShow.photos) return null;
+  console.log(disponibility);
   return (
     <ReactModal
       isOpen={spotModal}
@@ -97,7 +103,13 @@ export const SpotModal = () => {
                   name="fecha-out"
                   className="date-input"
                   min={formattedTomorrow}
-                  onChange={handleCheckOutDate}
+                />
+                <DatePicker
+                  inline
+                  excludeDateIntervals={
+                    Array.isArray(disponibility) ? disponibility : []
+                  }
+                  dateFormat="dd/mm/yyyy"
                 />
               </form>
             </div>
