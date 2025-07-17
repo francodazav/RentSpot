@@ -1,12 +1,14 @@
 import { useState, useCallback, useEffect } from "react";
 import { useUser } from "../hooks/useUser";
 import "./uploadspot.css";
+import { LoadingSpinner } from "../elements/LoadingSpinner";
 export const UpoloadSpot = () => {
   const [cities, setCities] = useState([]);
   const [file, setFile] = useState([]);
   const [ready, setReady] = useState(false);
   const [uploaded, setUploaded] = useState(false);
   const servicesList = ["Parking", "Wi-Fi", "Pool", "Gym", "Restaurant", "Spa"];
+  const [loading, setLoading] = useState(false);
   const { user } = useUser();
   const getCities = useCallback(async (country) => {
     try {
@@ -47,10 +49,10 @@ export const UpoloadSpot = () => {
     }
   };
   const handleSubmit = async (e) => {
-    console.log(user);
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData(e.target);
-    console.log(formData);
+
     const data = {
       hotelName: formData.get("hotelName"),
       country: formData.get("country"),
@@ -66,11 +68,6 @@ export const UpoloadSpot = () => {
       }, {}),
       photos: file,
     };
-    // servicesList.forEach((service) => {
-    //   if (formData.get(service)) {
-    //     data.services.push(service);
-    //   }
-    // });
     formData.append("data", JSON.stringify(data));
     for (let i = 0; i < file.length; i++) {
       formData.append("photos", file[i]);
@@ -84,10 +81,10 @@ export const UpoloadSpot = () => {
       const result = await response.json();
       if (result.message.includes("Spot uploaded successfully"))
         setUploaded(true);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
-    console.log(data);
   };
   return (
     <section className="upload-section">
@@ -95,11 +92,13 @@ export const UpoloadSpot = () => {
         <div className="access">
           <h1>You don't have access</h1>
         </div>
+      ) : loading ? (
+        <LoadingSpinner className="loading" />
       ) : (
-        <div>
+        <div style={{ width: "100%", height: "90vh" }}>
           {uploaded ? (
             <div className="uploaded">
-              <h1>Hotel uploaded successfully</h1>
+              <h1 className="h1-uploaded">Hotel uploaded successfully</h1>
             </div>
           ) : (
             <div className="upload-info">

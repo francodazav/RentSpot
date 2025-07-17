@@ -4,9 +4,9 @@
 .login-register-div {
   display: flex;
   justify-content: space-between;
-  width: 40%;
+  width: 50%;
   align-items: center;
-  margin-right: 3rem;
+  margin-right: 4rem;
 }
 .login-modal {
   width: 100%;

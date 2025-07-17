@@ -91,13 +91,14 @@
   border: none;
 }
 .buttons-spot {
-  width: 100%;
+  width: 70%;
   margin: 0 40%;
 }
 .button-modal {
   width: 20%;
   margin: 0 auto;
   font-size: 1.2rem;
+  font-weight: bold;
   background-color: transparent;
   border: none;
 }
@@ -107,4 +108,30 @@
 }
 .spot-info-container {
   width: 40%;
+}
+.custome-date {
+  appearance: textfield;
+  width: 100%;
+  margin: 0 auto;
+  height: 1.2rem;
+  border-radius: 12px;
+  border: none;
+}
+.owner-buttons {
+  margin-top: 20px;
+  margin: 10px 20%;
+}
+.button-form {
+  margin-top: 20px;
+}
+.reason-input {
+  width: 40%;
+  height: 1.2rem;
+  border: none;
+  border-radius: 12px;
+}
+.date-inout {
+  border-radius: 12px;
+  width: 40%;
+  height: 1.2rem;
 }

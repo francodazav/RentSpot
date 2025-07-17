@@ -24,7 +24,7 @@ export const LoginRegisterModal = () => {
     const formData = new FormData(event.target);
     const formEntries = Object.fromEntries(formData.entries());
     console.log(formEntries);
-    register({
+    const result = register({
       username: formEntries.username,
       password: formEntries.password,
       name: formEntries.name,
@@ -32,6 +32,10 @@ export const LoginRegisterModal = () => {
       email: formEntries.email,
       type: formEntries.type,
     });
+    if (result.registered) {
+      alert(result.message);
+      setIsOpen(false);
+    }
   };
   useEffect(() => {
     if (loged) {

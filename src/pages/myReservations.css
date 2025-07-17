@@ -1,0 +1,21 @@
+.reservations-section {
+  width: 100%;
+  height: 90vh;
+}
+.reservation-container {
+  width: 95%;
+  height: 10vh;
+  margin: 100px 0;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #120700;
+  align-items: center;
+  color: #120700;
+}
+.cancel-btn {
+  color: #120700;
+  background-color: transparent;
+  font-weight: bold;
+  border: none;
+  font-size: 1.2rem;
+}

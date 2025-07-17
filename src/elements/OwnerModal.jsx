@@ -2,13 +2,14 @@ import ReactModal from "react-modal";
 import DatePicker from "react-datepicker";
 import { useSpots } from "../hooks/ueeSpots";
 import "./spotModal.css";
-import { Link } from "../Router/Link";
 import "react-datepicker/dist/react-datepicker.css";
-import { useEffect } from "react";
-export const SpotModal = () => {
+import { useEffect, useState } from "react";
+import { Link } from "../Router/Link";
+import { useUser } from "../hooks/useUser";
+export const OwnerModal = () => {
   const {
-    spotModal,
-    setSpotModal,
+    ownerModal,
+    setOwnerModal,
     spotToShow,
     setCheckInDate,
     setCheckOutDate,
@@ -19,7 +20,10 @@ export const SpotModal = () => {
     formatedIn,
     formatedOut,
     setNotAvaible,
+    asignDisponibility,
+    deleteSpot,
   } = useSpots();
+  const { getHotels } = useUser();
   useEffect(() => {
     if (!formatedIn || !formatedOut || disponibility.length === 0) return;
 
@@ -34,14 +38,27 @@ export const SpotModal = () => {
 
       return selectedStart <= reservedEnd && selectedEnd >= reservedStart;
     });
-
     setNotAvaible(overlaps);
   }, [formatedIn, formatedOut, disponibility]);
+  const handleDisponibilityForm = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const formEntries = Object.fromEntries(formData.entries());
+    const { reason } = formEntries;
+    asignDisponibility(reason);
+    setOwnerModal(false);
+  };
+  const handleDelete = async () => {
+    await deleteSpot(spotToShow.id);
+    alert("Spot deleted it sussccesfully");
+    setOwnerModal(false);
+    getHotels();
+  };
   if (!spotToShow || !spotToShow.photos) return null;
 
   return (
     <ReactModal
-      isOpen={spotModal}
+      isOpen={ownerModal}
       contentLabel="Spot modall"
       className="spot-modal"
       overlayClassName="spot-modal-overlay"
@@ -98,8 +115,8 @@ export const SpotModal = () => {
               </ul>
             </div>
             <div className="reservation">
-              <form className="reserve-form">
-                <h2>Check in:</h2>{" "}
+              <form className="reserve-form" onSubmit={handleDisponibilityForm}>
+                <h2>Unavaible since</h2>{" "}
                 <DatePicker
                   excludeDateIntervals={
                     Array.isArray(disponibility) ? disponibility : []
@@ -108,8 +125,9 @@ export const SpotModal = () => {
                   onChange={(date) => setCheckInDate(date)}
                   selected={checkInDate}
                   minDate={new Date(formatedIn)}
+                  className="date-input"
                 />
-                <h2>Check out:</h2>{" "}
+                <h2>Until</h2>{" "}
                 <DatePicker
                   excludeDateIntervals={
                     Array.isArray(disponibility) ? disponibility : []
@@ -122,20 +140,37 @@ export const SpotModal = () => {
                   }}
                   selected={checkOutDate}
                   minDate={new Date(formatedOut)}
+                  className="date-input"
                 />
+                <h2>Reason</h2>
+                <input
+                  type="text"
+                  name="reason"
+                  className="reason-input"
+                  placeholder="Maintenance"
+                />
+                <button type="submit" className="button-modal button-form">
+                  Upload
+                </button>
               </form>
             </div>
           </div>
-          <div className="buttons-spot">
+          <div className="buttons-spot owner-buttons">
             <button
-              onClick={() => setSpotModal(false)}
+              onClick={() => setOwnerModal(false)}
               className="button-modal"
             >
               Close
             </button>
-            <Link to="/reserve" className="link">
-              Reserve
+            <Link to="/modify-hotel" className="link">
+              Modify Hotel
             </Link>
+            <Link to="/disponibility" className="link">
+              Disponibility
+            </Link>
+            <button className="button-modal" onClick={handleDelete}>
+              Delete Spot
+            </button>
           </div>
         </div>
       ) : null}

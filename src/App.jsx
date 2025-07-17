@@ -12,6 +12,9 @@ const UploadSpot = React.lazy(() => import("./pages/UploadSpot.jsx"));
 const MySpots = React.lazy(() => import("./pages/MySpots.jsx"));
 const HomePage = React.lazy(() => import("./pages/Homepage.jsx"));
 const Reserve = React.lazy(() => import("./pages/Reserve.jsx"));
+const MyReservations = React.lazy(() => import("./pages/MyReservations.jsx"));
+const ModifyHotel = React.lazy(() => import("./pages/ModifyHotel.jsx"));
+const Disponibility = React.lazy(() => import("./pages/Disponibility.jsx"));
 function App() {
   const { loged } = useUser();
 
@@ -21,11 +24,13 @@ function App() {
         {loged ? <DinamicNavbar /> : <Navbar />}
         <Router routes={routes}>
           <Route path="/reserve" Component={Reserve} />
-
+          <Route path="/my-reservations" Component={MyReservations} />
           {loged ? (
             <React.Fragment>
               <Route path="/upload-spot" Component={UploadSpot} />
               <Route path="/my-spots" Component={MySpots} />
+              <Route path="/modify-hotel" Component={ModifyHotel} />
+              <Route path="/disponibility" Component={Disponibility} />
             </React.Fragment>
           ) : (
             <Route path="/" Component={HomePage} />

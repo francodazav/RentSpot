@@ -4,24 +4,21 @@ import "./home.css";
 import { SpotCard } from "../elements/SpotCard";
 import { SpotModal } from "../elements/SpotModal";
 export const HomePage = () => {
-  const { getAllSpots, allSpots } = useSpots();
+  const { getAllSpots, allSpots, setSpotModal } = useSpots();
   useEffect(() => {
     getAllSpots();
+    setSpotModal(false);
   }, []);
-  const handleClick = () => {
-    console.log("WORKING ON IT CHAVALO");
-  };
+
   return (
     <section className="home-section">
       <SpotModal />
       <div className="bar"></div>
       <div className="spot-show-container">
-        {allSpots.length === null ? (
-          <p>Loading</p>
+        {allSpots.length > 0 ? (
+          allSpots.map((spot) => <SpotCard key={spot.name} spot={spot} />)
         ) : (
-          allSpots.map((spot) => (
-            <SpotCard key={spot.name} spot={spot} handleClick={handleClick} />
-          ))
+          <h1 className="h1-not-found">Any spot was found</h1>
         )}
       </div>
     </section>

@@ -1,8 +1,7 @@
 import { useSpots } from "../hooks/ueeSpots";
-import { SpotModal } from "./SpotModal";
 import "./spotcard.css";
 export const SpotCard = ({ spot }) => {
-  const { spotModal, setSpotModal, spotToShow, setSpotToShow } = useSpots();
+  const { setSpotModal, setSpotToShow } = useSpots();
   const handleClick = () => {
     setSpotToShow(spot);
     setSpotModal(true);

@@ -89,8 +89,7 @@
 }
 .uploaded {
   width: 100%;
-  height: 50%;
-  margin: auto auto;
+  height: 90vh;
   text-align: center;
 }
 .access {
@@ -102,4 +101,13 @@
 }
 .default-h1 {
   margin: 20% 40%;
+}
+.h1-uploaded {
+  color: black;
+  margin: 20%;
+}
+.loading {
+  width: 100%;
+  height: 90vh;
+  align-items: center;
 }

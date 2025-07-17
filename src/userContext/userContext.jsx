@@ -11,10 +11,12 @@ export const UserProvider = ({ children }) => {
   const [loged, setLoged] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalMode, setModaleMode] = useState("login");
+  const [myReservations, setMyReservations] = useState(null);
+  const [ownerSpots, setOwnerSpots] = useState([]);
+  const [ownerReady, setOwnerReady] = useState(false);
   const setData = (data) => {
     setUser(data);
     setLoged(true);
-    console.log("loged", loged);
   };
   const login = useCallback(async ({ username, password }) => {
     try {
@@ -36,12 +38,29 @@ export const UserProvider = ({ children }) => {
         setLoged(false);
         setIsInvalid("Invalid username or password");
       }
-      console.log(data);
     } catch (error) {
       setLoged(false);
       console.error(error);
     }
   }, []);
+  useEffect(() => {
+    if (user.type === 1) {
+      getHotels();
+    } else {
+      getMyReservations();
+    }
+  }, [user]);
+  const getHotels = useCallback(async () => {
+    try {
+      const response = await fetch("http://localhost:3000/my-hotels", {
+        method: "GET",
+        credentials: "include",
+      });
+      const userSpots = await response.json();
+      setOwnerSpots(userSpots);
+    } catch (error) {}
+  }, []);
+
   useEffect(() => {
     if (user.message) {
       setIsInvalid(user.message);
@@ -49,6 +68,10 @@ export const UserProvider = ({ children }) => {
       setIsInvalid("");
     }
   }, [user]);
+  useEffect(() => {
+    console.log(ownerSpots);
+    setOwnerReady(true);
+  }, [ownerSpots]);
   const register = useCallback(
     async ({ name, lastname, username, password, email, type }) => {
       try {
@@ -67,7 +90,12 @@ export const UserProvider = ({ children }) => {
           }),
         });
         const result = await response.json();
-        console.log(result);
+        if (result.message) {
+          alert(result.message);
+          if (result.registered) {
+            return result.registered;
+          }
+        }
       } catch (error) {}
     },
     []
@@ -83,6 +111,18 @@ export const UserProvider = ({ children }) => {
       const result = await response.json();
       console.log(result);
     } catch (error) {}
+  }, []);
+  const getMyReservations = useCallback(async () => {
+    try {
+      const response = await fetch("http://localhost:3000/reservation", {
+        method: "GET",
+        credentials: "include",
+      });
+      const data = await response.json();
+      setMyReservations(data);
+    } catch (error) {
+      console.error("Error fetching reservations:", error);
+    }
   }, []);
   return (
     <UserContext.Provider
@@ -100,6 +140,11 @@ export const UserProvider = ({ children }) => {
         setModaleMode,
         register,
         logout,
+        getMyReservations,
+        myReservations,
+        ownerReady,
+        ownerSpots,
+        getHotels,
       }}
     >
       {children}

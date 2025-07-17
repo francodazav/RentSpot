@@ -1,0 +1,53 @@
+.modify-section {
+  width: 100%;
+  height: 98vh;
+  display: flex;
+  margin-top: 40px;
+}
+.modify-info-container {
+  width: 50%;
+  height: 60vh;
+  color: #120700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto auto;
+  text-align: center;
+}
+.modify-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 60%;
+  background-color: #e5e5e5;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+.input-modify {
+  width: 40%;
+  height: 2rem;
+  border-radius: 12px;
+  border: none;
+}
+.textarea-modify {
+  width: 80%;
+  height: 4rem;
+
+  border-radius: 12px;
+  border: none;
+  text-align: center;
+}
+.button-modify {
+  width: 30%;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+}
+.h1-modify {
+  margin: 30% 30%;
+  color: #120700;
+}

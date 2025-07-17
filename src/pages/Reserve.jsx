@@ -6,19 +6,23 @@ import { loadStripe } from "@stripe/stripe-js";
 import { CardElement } from "@stripe/react-stripe-js";
 import "./reserve.css";
 import { useEffect, useState } from "react";
+import { LoadingSpinner } from "../elements/LoadingSpinner";
 export const Reserve = () => {
-  const { user } = useUser();
-  const [rsvDone, setRsvDone] = useState(false);
+  const { user, getMyReservations } = useUser();
   const {
     spotToShow,
-    checkInDate,
-    checkOutDate,
     daysRsv,
     makeReservation,
     rsvConfirm,
+    formatedIn,
+    formatedOut,
+    notAvaible,
     setSpotToShow,
+    setRsvDone,
+    setRsvConfirm,
+    rsvDone,
   } = useSpots();
-
+  const [loading, setLoading] = useState(false);
   const stripePromise = loadStripe("pk_test");
   const options = {
     style: {
@@ -31,21 +35,21 @@ export const Reserve = () => {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     await makeReservation({ user });
+
+    getMyReservations();
+    setLoading(false);
   };
   useEffect(() => {
-    setRsvDone(true);
-    setTimeout(() => {
-      setRsvDone(false);
-      setSpotToShow({});
-    }, 5000);
-  }, [rsvConfirm]);
+    setRsvDone(false);
+  }, []);
   return (
     <section className="reserve">
       {rsvDone ? (
         <div className="rsv-confirmation">
           <h1>Thanks for reserving with us {user.name}</h1>
-          <h2>Your reserve confirmation is : {rsvConfirm}</h2>
+          <h2>You can watch the details at my reservations section</h2>
         </div>
       ) : user.message === "" || !spotToShow.name ? (
         <div className="default-payment">
@@ -55,15 +59,21 @@ export const Reserve = () => {
             <h1 className="default-h1">You must login and select an hotel</h1>
           )}
         </div>
+      ) : notAvaible ? (
+        <div className="not-avaible">
+          <h2>Dates not avaible plese choose another dates</h2>
+        </div>
+      ) : loading ? (
+        <LoadingSpinner />
       ) : (
         <div className="reserve-container">
           <div className="info-reserve">
             <h1>{user.name.toUpperCase()} confirm your reservation</h1>
             <SpotCard spot={spotToShow} />
             <h1>Check in :</h1>
-            <h3>{checkInDate}</h3>
+            <h3>{formatedIn}</h3>
             <h1>Check out :</h1>
-            <h3>{checkOutDate}</h3>
+            <h3>{formatedOut}</h3>
             <h1>Your are gonna stay</h1>
             <h3>{daysRsv} days</h3>
             <h1>The price is gonna be</h1>
