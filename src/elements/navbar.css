@@ -13,7 +13,7 @@
 }
 .options-container {
   display: flex;
-  width: 75%;
+  width: 66%;
 }
 .navbar-list {
   width: 80%;
@@ -110,7 +110,7 @@
 }
 .search-container {
   display: flex;
-  width: 100%;
+  width: 40%;
   margin: auto 0 auto 50px;
   height: 3rem;
 }
@@ -133,4 +133,225 @@
   border-bottom-left-radius: 12px;
   background-color: white;
   border: none;
+}
+.options-btn {
+  display: none;
+}
+.options-nav {
+  display: flex;
+  align-items: center;
+}
+@media screen and (min-width: 320px) and (max-width: 725px) {
+  .link {
+    font-size: 0.6rem;
+    margin: auto;
+  }
+  .title {
+    font-size: 1rem;
+  }
+  .h2-name {
+    font-size: 0.8rem;
+    margin: auto auto;
+  }
+  .options-container {
+    width: 90%;
+  }
+  .user-btns {
+    font-size: 0.6rem;
+  }
+  .usernav-div-1 {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0rem;
+    top: 80px;
+    align-items: center;
+    width: 10vh;
+    height: 20vh;
+    background-color: #e5e5e5;
+  }
+  .usernav-div-1::before {
+    content: "";
+    position: absolute;
+    top: -0.7rem;
+    left: 15.3rem;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+  }
+  .usernav-div {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0rem;
+    top: 80px;
+    align-items: center;
+    width: 10vh;
+    height: 10vh;
+    background-color: #e5e5e5;
+  }
+  .usernav-div::before {
+    content: "";
+    position: absolute;
+    top: -0.7rem;
+    left: 15.3rem;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+  }
+  .options-btn {
+    display: block;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 0.2rem;
+  }
+  .title {
+    display: none;
+  }
+  .search-container {
+    width: 50%;
+  }
+  .capacity-search {
+    width: 5vh;
+    height: 5vh;
+  }
+  .place-input {
+    width: 5vh;
+    height: 5vh;
+  }
+  .date-search {
+    width: 5vh;
+    height: 5vh;
+  }
+  .search-btn {
+    width: 5vh;
+    height: 5vh;
+    font-size: 0.5rem;
+  }
+  .options-nav {
+    width: 10vh;
+    height: 15vh;
+    position: absolute;
+    top: 60px;
+    right: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e5e5e5;
+    text-align: center;
+  }
+  .log-reg-btn {
+    font-size: 0.6rem;
+    width: 5vh;
+  }
+  .login-container {
+    width: 90%;
+    height: 60vh;
+  }
+
+  .register-container {
+    width: 80%;
+    height: 90vh;
+  }
+}
+@media screen and (min-width: 426px) and (max-width: 1024px) {
+  .search-container {
+    width: 50%;
+  }
+  .capacity-search {
+    width: 10vh;
+    height: 5vh;
+  }
+  .place-input {
+    width: 10vh;
+    height: 5vh;
+  }
+  .date-search {
+    width: 10vh;
+    height: 5vh;
+  }
+  .search-btn {
+    width: 10vh;
+    height: 5vh;
+    font-size: 0.5rem;
+  }
+  .options-btn {
+    display: block;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 0.2rem;
+    top: 25px;
+  }
+  .options-nav {
+    width: 12vh;
+    height: 17vh;
+    position: absolute;
+    top: 60px;
+    right: 0rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e5e5e5;
+  }
+  .link {
+    font-size: 0.8rem;
+  }
+  .log-reg-btn {
+    font-size: 0.8rem;
+  }
+  .login-container {
+    width: 50%;
+    height: 90vh;
+  }
+  .register-container {
+    height: 90vh;
+  }
+  .usernav-div {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0rem;
+    top: 80px;
+    align-items: center;
+    width: 15vh;
+    height: 10vh;
+    background-color: #e5e5e5;
+    font-size: 1rem;
+  }
+  .usernav-div::before {
+    content: "";
+    position: absolute;
+    top: -0.7rem;
+    left: 15.3rem;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+  }
+  .usernav-div-1 {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0rem;
+    top: 80px;
+    align-items: center;
+    width: 15vh;
+    height: 20vh;
+    background-color: #e5e5e5;
+    font-size: 1rem;
+  }
+  .usernav-div-1::before {
+    content: "";
+    position: absolute;
+    top: -0.7rem;
+    left: 15.3rem;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+  }
+  .user-btns {
+    font-size: 0.8rem;
+  }
 }

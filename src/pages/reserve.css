@@ -83,3 +83,27 @@
   margin-top: 100px;
   text-align: center;
 }
+@media screen and (min-width: 320px) and (max-width: 725px) {
+  .reserve-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .info-reserve {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .spot-card {
+    width: 50%;
+    height: 40vh;
+  }
+  .h1-reserve {
+    display: none;
+  }
+  .form-payment {
+    width: 100%;
+  }
+  .payment-container {
+    width: 100%;
+  }
+}

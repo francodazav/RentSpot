@@ -96,7 +96,7 @@
 }
 .button-modal {
   width: 20%;
-  margin: 0 auto;
+  margin: 0 20px;
   font-size: 1.2rem;
   font-weight: bold;
   background-color: transparent;
@@ -104,7 +104,6 @@
 }
 .button-modal:hover {
   cursor: pointer;
-  background-color: #d5d5eaa3;
 }
 .spot-info-container {
   width: 40%;
@@ -120,6 +119,8 @@
 .owner-buttons {
   margin-top: 20px;
   margin: 10px 20%;
+  display: flex;
+  justify-content: space-around;
 }
 .button-form {
   margin-top: 20px;
@@ -134,4 +135,54 @@
   border-radius: 12px;
   width: 40%;
   height: 1.2rem;
+}
+@media screen and (min-width: 320px) and (max-width: 725px) {
+  .images-spot {
+    display: flex;
+    flex-direction: column;
+  }
+  .secundary-photos {
+    display: flex;
+    flex-direction: row;
+    width: 70.5%;
+    height: 15vh;
+  }
+  .principal-photo {
+    width: 100%;
+    height: 20vh;
+  }
+  .secundary-photo {
+    width: 55%;
+  }
+  .spot-modal-container {
+    font-size: 0.5rem;
+  }
+  .spot-info-container {
+    width: 65%;
+  }
+  .reservation {
+    width: 35%;
+  }
+  .buttons-spot {
+    width: 100%;
+    font-size: 0.5rem;
+  }
+  .reason-input {
+    width: 100%;
+  }
+  .button-form {
+    align-self: center;
+    margin-right: 60px;
+  }
+  .button-modal {
+    width: 2%;
+    font-size: 0.6rem;
+    margin: auto 30px;
+  }
+  .owner-buttons {
+    margin: 0px;
+  }
+  .spot-info-list {
+    font-size: 0.6rem;
+  }
 }

@@ -25,6 +25,7 @@ function App() {
         <Router routes={routes}>
           <Route path="/reserve" Component={Reserve} />
           <Route path="/my-reservations" Component={MyReservations} />
+          <Route path="/" Component={HomePage} />
           {loged ? (
             <React.Fragment>
               <Route path="/upload-spot" Component={UploadSpot} />

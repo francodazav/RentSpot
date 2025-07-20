@@ -18,6 +18,7 @@ export const SpotsProvider = ({ children }) => {
   const [formatedOut, setFormatedOut] = useState("");
   const [notAvaible, setNotAvaible] = useState(false);
   const [ownerModal, setOwnerModal] = useState(false);
+  const [spotDisponibility, setSpotDisponibility] = useState([]);
   useEffect(() => {
     if (checkInDate) {
       const tomorrow = new Date(checkInDate);
@@ -70,7 +71,6 @@ export const SpotsProvider = ({ children }) => {
   };
   useEffect(() => {
     setRsvDone(true);
-    console.log(rsvDone);
   }, [rsvConfirm]);
   useEffect(() => {
     const startDate = new Date(checkInDate);
@@ -129,7 +129,6 @@ export const SpotsProvider = ({ children }) => {
         }
       );
       const result = await response.json();
-      console.log(result);
     } catch (error) {
       console.error(error);
     }
@@ -137,7 +136,6 @@ export const SpotsProvider = ({ children }) => {
   const patchHotel = useCallback(
     async ({ name, price, description }) => {
       try {
-        console.log("spot", spotToShow);
         const respone = await fetch("http://localhost:3000/modify-hotel", {
           method: "PATCH",
           credentials: "include",
@@ -167,7 +165,6 @@ export const SpotsProvider = ({ children }) => {
     [spotToShow]
   );
   const deleteSpot = useCallback(async (id) => {
-    console.log(id);
     try {
       const response = await fetch(`http://localhost:3000/delete`, {
         method: "DELETE",
@@ -186,7 +183,6 @@ export const SpotsProvider = ({ children }) => {
   }, []);
   const cancelRsv = useCallback(async (rsvConfirm) => {
     try {
-      console.log(rsvConfirm);
       const response = await fetch(
         `http://localhost:3000/reservation/${rsvConfirm}`,
         {
@@ -208,7 +204,6 @@ export const SpotsProvider = ({ children }) => {
       capacity = null,
     }) => {
       const params = new URLSearchParams();
-      console.log(fechaIn, fechaOut);
       if (country != "Country") params.append("country", country);
       if (city != "City") params.append("city", city);
       if (fechaIn) params.append("fechaIn", fechaIn);
@@ -222,7 +217,7 @@ export const SpotsProvider = ({ children }) => {
           }
         );
         const result = await response.json();
-        console.log(result);
+
         setAllSpots(result);
       } catch (error) {
         console.error(error);
@@ -231,6 +226,19 @@ export const SpotsProvider = ({ children }) => {
 
     []
   );
+  const getSpotDisponibility = useCallback(async (id) => {
+    try {
+      console.log("id", spotToShow);
+      const response = await fetch(
+        `http://localhost:3000/hotel-disponibility/${id}`,
+        {
+          method: "GET",
+        }
+      );
+      const result = await response.json();
+      setSpotDisponibility(result);
+    } catch (error) {}
+  }, []);
   return (
     <SpotsContext.Provider
       value={{
@@ -250,6 +258,7 @@ export const SpotsProvider = ({ children }) => {
         notAvaible,
         ownerModal,
         rsvDone,
+        spotDisponibility,
         searchHotel,
         setRsvDone,
         setOwnerModal,
@@ -271,6 +280,7 @@ export const SpotsProvider = ({ children }) => {
         deleteSpot,
         cancelRsv,
         setAllSpots,
+        getSpotDisponibility,
       }}
     >
       {children}

@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import { useUser } from "../hooks/useUser";
 import "./uploadspot.css";
 import { LoadingSpinner } from "../elements/LoadingSpinner";
+import { useSpots } from "../hooks/ueeSpots";
 export const UpoloadSpot = () => {
   const [cities, setCities] = useState([]);
   const [file, setFile] = useState([]);

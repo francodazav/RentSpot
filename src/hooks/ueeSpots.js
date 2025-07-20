@@ -40,6 +40,8 @@ export const useSpots = () => {
     cancelRsv,
     searchHotel,
     setAllSpots,
+    spotDisponibility,
+    getSpotDisponibility,
   } = useContext(SpotsContext);
   return {
     getAllSpots,
@@ -79,5 +81,7 @@ export const useSpots = () => {
     cancelRsv,
     searchHotel,
     setAllSpots,
+    spotDisponibility,
+    getSpotDisponibility,
   };
 };

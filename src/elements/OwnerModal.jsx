@@ -22,6 +22,7 @@ export const OwnerModal = () => {
     setNotAvaible,
     asignDisponibility,
     deleteSpot,
+    getSpotDisponibility,
   } = useSpots();
   const { getHotels } = useUser();
   useEffect(() => {
@@ -54,6 +55,7 @@ export const OwnerModal = () => {
     setOwnerModal(false);
     getHotels();
   };
+
   if (!spotToShow || !spotToShow.photos) return null;
 
   return (
@@ -163,7 +165,7 @@ export const OwnerModal = () => {
               Close
             </button>
             <Link to="/modify-hotel" className="link">
-              Modify Hotel
+              Modify
             </Link>
             <Link to="/disponibility" className="link">
               Disponibility

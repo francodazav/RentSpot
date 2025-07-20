@@ -108,6 +108,7 @@ export const SpotModal = () => {
                   onChange={(date) => setCheckInDate(date)}
                   selected={checkInDate}
                   minDate={new Date(formatedIn)}
+                  className="date-input"
                 />
                 <h2>Check out:</h2>{" "}
                 <DatePicker
@@ -122,6 +123,7 @@ export const SpotModal = () => {
                   }}
                   selected={checkOutDate}
                   minDate={new Date(formatedOut)}
+                  className="date-input"
                 />
               </form>
             </div>

@@ -68,16 +68,20 @@ export const Reserve = () => {
       ) : (
         <div className="reserve-container">
           <div className="info-reserve">
-            <h1>{user.name.toUpperCase()} confirm your reservation</h1>
-            <SpotCard spot={spotToShow} />
-            <h1>Check in :</h1>
-            <h3>{formatedIn}</h3>
-            <h1>Check out :</h1>
-            <h3>{formatedOut}</h3>
-            <h1>Your are gonna stay</h1>
-            <h3>{daysRsv} days</h3>
-            <h1>The price is gonna be</h1>
-            <h3>${daysRsv * spotToShow.price}</h3>
+            <h1 className="h1-reserve">
+              {user.name.toUpperCase()} confirm your reservation
+            </h1>
+            <SpotCard className="spot-card" spot={spotToShow} />
+            <div className="info-display">
+              <h1>Check in :</h1>
+              <h3>{formatedIn}</h3>
+              <h1>Check out :</h1>
+              <h3>{formatedOut}</h3>
+              <h1>Your are gonna stay</h1>
+              <h3>{daysRsv} days</h3>
+              <h1>The price is gonna be</h1>
+              <h3>${daysRsv * spotToShow.price}</h3>
+            </div>
           </div>
           <div className="payment-container">
             <Elements stripe={stripePromise}>

@@ -83,7 +83,7 @@
   margin: auto auto;
   background-color: #d5d5ea;
   border: none;
-  color: #79787e;
+  color: #20202f;
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -110,4 +110,78 @@
   width: 100%;
   height: 90vh;
   align-items: center;
+}
+@media screen and (min-width: 320px) and (max-width: 725px) {
+  .ul-requires {
+    width: 100%;
+    height: 70vh;
+    flex-wrap: wrap;
+    font-size: 0.6rem;
+  }
+  .requires-list {
+    width: 100%;
+  }
+  .upload-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-container {
+    width: 100%;
+    height: 90vh;
+  }
+  label {
+    font-size: 0.5rem;
+  }
+  .input-hotel {
+    height: 1rem;
+  }
+  .text-hotel {
+    height: 1.5rem;
+  }
+  .file-input {
+    height: 1rem;
+  }
+  .submit-hotel {
+    font-size: 1rem;
+    height: 1rem;
+    background-color: transparent;
+    border: none;
+    color: #20202f;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1044px) {
+  .form-container {
+    width: 70%;
+    height: 90vh;
+    margin-top: 80px;
+  }
+  .requires-list {
+    font-size: 0.8rem;
+  }
+  .input-hotel {
+    font-size: 0.8rem;
+    height: 0.8rem;
+  }
+  .form-hotel {
+    height: 100%;
+  }
+  .text-hotel {
+    height: 1rem;
+  }
+  label {
+    font-size: 0.8rem;
+  }
+  .file-input {
+    height: 0.8rem;
+    font-size: 0.8rem;
+  }
+  .check-services {
+    height: 10px;
+    width: 10px;
+  }
+  .submit-hotel {
+    height: 1rem;
+    border: none;
+    background-color: transparent;
+  }
 }
