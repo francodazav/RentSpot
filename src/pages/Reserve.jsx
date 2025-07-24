@@ -13,15 +13,21 @@ export const Reserve = () => {
     spotToShow,
     daysRsv,
     makeReservation,
-    rsvConfirm,
+ 
     formatedIn,
     formatedOut,
     notAvaible,
-    setSpotToShow,
+    
     setRsvDone,
-    setRsvConfirm,
+    
     rsvDone,
-  } = useSpots();
+  } = useSpots()
+  const {setIsOpen, setModaleMode,}= useUser()
+    const showModalLog = () => {
+    setIsOpen(true);
+    setModaleMode("login");
+    console.log("ENTRA")
+  };
   const [loading, setLoading] = useState(false);
   const stripePromise = loadStripe("pk_test");
   const options = {
@@ -56,7 +62,10 @@ export const Reserve = () => {
           {user.name ? (
             <h1 className="default-h1">You must select an hotel</h1>
           ) : (
-            <h1 className="default-h1">You must login and select an hotel</h1>
+            <div  className="select-container"  onClick={showModalLog}>
+              <h1 >You must login first</h1>
+              <h2 >And Select an Hotel</h2>
+            </div>
           )}
         </div>
       ) : notAvaible ? (

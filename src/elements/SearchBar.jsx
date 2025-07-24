@@ -84,7 +84,7 @@ export const SearchBar = () => {
       <form className="search-bar-form" onSubmit={handleSearch}>
         <input
           type="number"
-          placeholder="capacity"
+          placeholder="Capacity"
           className="capacity-search"
           name="capacity"
         />

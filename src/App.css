@@ -20,8 +20,8 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 70vh;
-  margin: 10% auto;
+  height: 85vh;
+  margin: 5% auto;
   color: #20202f;
   text-align: center;
   background-color: #f0eef0;
@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: column;
   width: 30%;
-  height: 45vh;
+  height: 55vh;
   margin: 15% auto;
   color: #20202f;
   text-align: center;

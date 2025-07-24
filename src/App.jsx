@@ -16,7 +16,7 @@ const MyReservations = React.lazy(() => import("./pages/MyReservations.jsx"));
 const ModifyHotel = React.lazy(() => import("./pages/ModifyHotel.jsx"));
 const Disponibility = React.lazy(() => import("./pages/Disponibility.jsx"));
 function App() {
-  const { loged } = useUser();
+  const { loged } = useUser()
 
   return (
     <main className="App">

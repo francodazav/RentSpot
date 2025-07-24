@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useUser } from "../hooks/useUser.js";
 import ReactModal from "react-modal";
 export const LoginRegisterModal = () => {
@@ -10,8 +10,8 @@ export const LoginRegisterModal = () => {
     modalIsOpen,
     invalid,
     modalMode,
-    register,
-  } = useUser();
+    register
+  } = useUser()
 
   const loginCatcher = (event) => {
     event.preventDefault();
@@ -72,7 +72,8 @@ export const LoginRegisterModal = () => {
               x
             </button>
           </div>
-          <h1>Welcome to RentSpot please login</h1>
+          <h1>Welcome to RentSpot </h1>
+          <h2>Please Login</h2>
           <form onSubmit={loginCatcher} className="login-form">
             <label className="label-form">
               Username:

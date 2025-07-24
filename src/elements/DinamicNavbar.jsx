@@ -4,7 +4,7 @@ import "../elements/navbar.css";
 import { SearchBar } from "./SearchBar";
 import { useEffect, useState } from "react";
 export const DinamicNavbar = () => {
-  const { user, logout, getHotels } = useUser();
+  const { user, logout } = useUser();
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
   const [options, setOptions] = useState("block");
@@ -17,6 +17,8 @@ export const DinamicNavbar = () => {
     if (width >= 320 && width <= 725) {
       console.log("entra");
       setOptions("none");
+    } else {
+      setOptions("flex");
     }
     window.addEventListener("resize", handleResize);
     return () => {

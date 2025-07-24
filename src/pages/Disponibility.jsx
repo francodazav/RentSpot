@@ -25,7 +25,7 @@ export const Disponibility = () => {
       {user.type != 1 ? (
         <h1 className="h1-access">You don't have access</h1>
       ) : spotDisponibility.length == 0 ? (
-        <h1>It doesn't have any reservation</h1>
+        <h1 style={{ margin: "25% 40%" }}>It doesn't have any reservation</h1>
       ) : (
         spotDisponibility.map((spot) => (
           <DisponibilitySpot key={spot.name} spot={spot} />

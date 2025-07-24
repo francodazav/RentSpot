@@ -4,10 +4,10 @@ import { Link } from "../Router/Link.jsx";
 import { SearchBar } from "./SearchBar.jsx";
 import { useEffect, useState } from "react";
 export const Navbar = () => {
-  const { user, loged, setIsOpen, setModaleMode, getHotels } = useUser();
+  const { user, setIsOpen, setModaleMode, getHotels } = useUser();
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
-  const [options, setOptions] = useState("block");
+  const [options, setOptions] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -26,7 +26,7 @@ export const Navbar = () => {
     };
   }, []);
   const handleOptions = () => {
-    options === "flex" ? setOptions("none") : setOptions("flex");
+    options ? setOptions(false) : setOptions(true);
   };
   const showModalLog = () => {
     setIsOpen(true);
@@ -61,7 +61,7 @@ export const Navbar = () => {
               />
             </svg>
           </button>
-          <div className="options-nav" style={{ display: options }}>
+          <div className={`options-nav ${options ? "show" : "hide"}`}>
             <li>
               <Link to="/" className="link" onClick={() => getHotels()}>
                 Home

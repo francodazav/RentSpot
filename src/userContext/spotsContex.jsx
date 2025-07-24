@@ -236,8 +236,11 @@ export const SpotsProvider = ({ children }) => {
         }
       );
       const result = await response.json();
+      console.log("result", result);
       setSpotDisponibility(result);
-    } catch (error) {}
+    } catch (error) {
+      throw new Error(error);
+    }
   }, []);
   return (
     <SpotsContext.Provider

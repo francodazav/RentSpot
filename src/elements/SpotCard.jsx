@@ -14,5 +14,5 @@ export const SpotCard = ({ spot }) => {
         <p className="spot-price">${spot.price * 2} for 2 nights</p>
       </div>
     </div>
-  );
+  )
 };

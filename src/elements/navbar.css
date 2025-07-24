@@ -64,7 +64,10 @@
 }
 .usernav-div {
   display: flex;
-  width: 70%;
+  width: 40vh;
+  align-items: center;
+  margin: auto 200px;
+  gap: 2rem;
 }
 .navbar-list-user {
   width: 60%;
@@ -133,6 +136,7 @@
   border-bottom-left-radius: 12px;
   background-color: white;
   border: none;
+  text-align: center;
 }
 .options-btn {
   display: none;
@@ -183,12 +187,12 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 0rem;
-    top: 80px;
     align-items: center;
-    width: 10vh;
-    height: 10vh;
+    width: 12vh;
+    height: 22vh;
     background-color: #e5e5e5;
+    top: 80px;
+    right: -13rem;
   }
   .usernav-div::before {
     content: "";
@@ -205,6 +209,7 @@
     background-color: transparent;
     position: absolute;
     right: 0.2rem;
+    top: 20px;
   }
   .title {
     display: none;
@@ -255,6 +260,19 @@
     width: 80%;
     height: 90vh;
   }
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .hide {
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 @media screen and (min-width: 426px) and (max-width: 1024px) {
   .search-container {
@@ -295,6 +313,7 @@
     justify-content: center;
     align-items: center;
     background-color: #e5e5e5;
+    transform: translateY(0);
   }
   .link {
     font-size: 0.8rem;
@@ -313,13 +332,13 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 0rem;
     top: 80px;
     align-items: center;
     width: 15vh;
-    height: 10vh;
+    height: 20vh;
     background-color: #e5e5e5;
     font-size: 1rem;
+    left: 29rem;
   }
   .usernav-div::before {
     content: "";
@@ -353,5 +372,18 @@
   }
   .user-btns {
     font-size: 0.8rem;
+  }
+  .options-nav.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .options-nav.hide {
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    pointer-events: none;
   }
 }

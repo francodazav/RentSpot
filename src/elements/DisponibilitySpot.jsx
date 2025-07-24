@@ -1,7 +1,7 @@
 import { useUser } from "../hooks/useUser";
 
 export const DisponibilitySpot = ({ spot }) => {
-  const { user } = useUser();
+  const { user } = useUser()
   console.log(spot);
   return (
     <div className="reservation-container">
