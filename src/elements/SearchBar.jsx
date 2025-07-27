@@ -62,7 +62,7 @@ export const SearchBar = () => {
   }, [cities]);
   const handleSearch = (event) => {
     event.preventDefault();
-
+    console.log("handleSearch");
     const formData = new FormData(event.target);
     const data = {
       capacity: formData.get("capacity"),

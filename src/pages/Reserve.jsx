@@ -13,13 +13,13 @@ export const Reserve = () => {
     spotToShow,
     daysRsv,
     makeReservation,
-    rsvConfirm,
+ 
     formatedIn,
     formatedOut,
     notAvaible,
-    setSpotToShow,
+    
     setRsvDone,
-    setRsvConfirm,
+    
     rsvDone,
   } = useSpots();
   const [loading, setLoading] = useState(false);

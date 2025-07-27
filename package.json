@@ -9,6 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  },
   "dependencies": {
     "@stripe/react-stripe-js": "^3.7.0",
     "@stripe/stripe-js": "^7.4.0",
@@ -21,7 +24,8 @@
     "react-dom": "^19.1.0",
     "react-dropzone": "14.3.8",
     "react-modal": "^3.16.3",
-    "react-router-dom": "7.6.3"
+    "react-router-dom": "7.6.3",
+    "standard": "^17.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
